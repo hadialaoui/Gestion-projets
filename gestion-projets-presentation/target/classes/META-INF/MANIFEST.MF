@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: gestion-projets-presentation
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ADMINIBM
+Implementation-Vendor-Id: ma.ibm
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/gestion-projets/gestion-projets-presentation
+Created-By: Maven Integration for Eclipse
+
