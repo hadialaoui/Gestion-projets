@@ -1,27 +1,40 @@
 package ma.ibm.entities;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "projets")
 public class Projet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idProjet;
+	private Long id;
     private String nom;
     private Date dateDebut;
     private Date dateFin;
-    private Personne responsable;
+    private Employee responsable;
     
-	public Long getIdProjet() {
-		return idProjet;
+    @ManyToMany( fetch = FetchType.LAZY,
+			     cascade = { CascadeType.ALL},
+			     mappedBy = "projets")
+    private Set<Employee> employees = new HashSet<>();
+    
+    
+	public Long getId() {
+		return id;
 	}
-	public void setIdProjet(Long idProjet) {
-		this.idProjet = idProjet;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNom() {
 		return nom;
@@ -41,14 +54,11 @@ public class Projet {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	public Personne getResponsable() {
+	public Employee getResponsable() {
 		return responsable;
 	}
-	public void setResponsable(Personne responsable) {
+	public void setResponsable(Employee responsable) {
 		this.responsable = responsable;
 	}
-    
-
-    
     
 }
