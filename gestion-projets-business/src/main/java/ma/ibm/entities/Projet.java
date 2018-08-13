@@ -22,7 +22,7 @@ public class Projet {
     private String nom;
     private Date dateDebut;
     private Date dateFin;
-    private Employee responsable;
+    private String refogRespo;
     
     @ManyToMany( fetch = FetchType.LAZY,
 			     cascade = { CascadeType.ALL},
@@ -30,6 +30,18 @@ public class Projet {
     private Set<Employee> employees = new HashSet<>();
     
     
+	public Projet() {}
+	
+	public Projet(String nom, Date dateDebut, Date dateFin, String refogRespo) {
+		super();
+		this.nom = nom;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.refogRespo = refogRespo;
+		
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -54,11 +66,24 @@ public class Projet {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	public Employee getResponsable() {
-		return responsable;
+	public String getRefogRespo() {
+		return refogRespo;
 	}
-	public void setResponsable(Employee responsable) {
-		this.responsable = responsable;
+	public void setRefogRespo(String refogRespo) {
+		this.refogRespo = refogRespo;
 	}
+	public Set<Employee> getEmployees() {
+		return employees;
+	}
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
+	}
+	public boolean addEmployee(Employee e) {
+		return employees.add(e);
+	}
+	public boolean removeEmployee(Employee e) {
+		return employees.remove(e);
+	}
+	
     
 }

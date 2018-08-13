@@ -1,0 +1,12 @@
+ma\ibm\entities\Projet.class
+ma\ibm\services\EntityToModel.class
+ma\ibm\metier\ClassMetier.class
+ma\ibm\Main.class
+ma\ibm\entities\Employee.class
+ma\ibm\metier\ClassAuto.class
+ma\ibm\controllers\EmployeeController.class
+ma\ibm\metier\TestClass.class
+ma\ibm\repositories\EmployeeRepository.class
+ma\ibm\services\IEntityToModel.class
+ma\ibm\repositories\ProjetRepository.class
+ma\ibm\controllers\ProjetController.class

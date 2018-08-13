@@ -32,6 +32,22 @@ public class Employee {
 			@JoinColumn(name = "projet_id") })
 	Set<Projet> projets = new HashSet<>();
 
+	
+	public Employee() {}
+	
+	
+
+	public Employee(String nom, String prenom, String refog, String statut, Date dateIntegration) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.refog = refog;
+		this.statut = statut;
+		this.dateIntegration = dateIntegration;
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -79,5 +95,21 @@ public class Employee {
 	public void setDateIntegration(Date dateIntegration) {
 		this.dateIntegration = dateIntegration;
 	}
+	
+	public Set<Projet> getProjets() {
+		return projets;
+	}
 
+	public void setProjets(Set<Projet> projets) {
+		this.projets = projets;
+	}
+
+
+
+	public boolean addProjet(Projet p) {
+		return projets.add(p);
+	}
+	public boolean removeProjet(Projet p) {
+		return projets.remove(p);
+	}
 }
