@@ -17,8 +17,8 @@
 	
   <modules>
   	<module>gestion-projets-business</module>
-    <module>gestion-projets-present</module>
     <module>gestion-projets-commun</module>
+    <module>gestionpresentation</module>
   </modules>
    <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
