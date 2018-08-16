@@ -17,6 +17,25 @@ public class EntityToModel implements IEntityToModel {
 				emp.getDateIntegration());
 	}
 
+	
+	@Override
+	public ma.ibm.entities.Employee empModelToEntity(Employee emp) {
+		
+		/*try {
+			SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+			Date date = new Date();
+			date = dateFormat.parse(emp.getDateIntegration());
+			ma.ibm.entities.Employee e=new ma.ibm.entities.Employee(emp.getNom(), emp.getPrenom(), emp.getRefog(), emp.getStatut(), date);
+			e.setId(emp.getId());
+			return e;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}*/
+		return null;
+	}
+
+
 	@Override
 	public Projet proEntityToModel(ma.ibm.entities.Projet pro) {
 		return new Projet(pro.getId(), pro.getNom(), pro.getDateDebut(), pro.getDateFin(), pro.getRefogRespo());

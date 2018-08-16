@@ -29,13 +29,13 @@ public class Main implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-       Employee e= new Employee("HADI ","Mohamed", "Emp5478", "Emp", new Date());
+     /*  Employee e= new Employee("HADI ","Mohamed", "Emp5478", "Emp", new Date());
 		
 		for(int i=0; i<3;i++) {
 			Projet p= new Projet("Selfcare "+i, new Date(), new Date()  , "Emp5458 "+i);
 			e.getProjets().add(p);
 		}
-		empRepository.save(e);	
+		empRepository.save(e);	*/
 	}
 
 	

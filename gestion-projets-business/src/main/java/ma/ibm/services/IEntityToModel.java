@@ -8,6 +8,8 @@ import ma.ibm.models.Projet;
 public interface IEntityToModel {
 
 	public Employee empEntityToModel(ma.ibm.entities.Employee emp);
+	
+	public ma.ibm.entities.Employee empModelToEntity(Employee emp);
 
 	public Projet proEntityToModel(ma.ibm.entities.Projet pro);
 

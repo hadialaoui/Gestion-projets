@@ -14,6 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 @Entity
 @Table(name = "employees")
@@ -25,6 +29,7 @@ public class Employee {
 	private String prenom;
 	private String refog;
 	private String statut;
+	@Temporal(TemporalType.DATE)
 	private Date dateIntegration;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })

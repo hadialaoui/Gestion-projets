@@ -1,21 +1,24 @@
 package ma.ibm.services;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import ma.ibm.metier.IConvertStringToListObj;
 import ma.ibm.models.Employee;
+import ma.ibm.models.LongType;
+import ma.ibm.models.Projet;
 
 @Service
 public class EmployeeService implements IEmployeeService {
+	
+	@Autowired
+	IConvertStringToListObj convert;
 
 	@Override
 	public List<Employee> getEmployees() {
@@ -26,7 +29,7 @@ public class EmployeeService implements IEmployeeService {
         ResponseEntity<String> rateResponse = restTemplate.getForEntity(url,String.class);
 		String response = rateResponse.getBody();
 		System.out.println(response);
-        employees = stringtoEmpList(response);
+        employees = convert.stringtoEmployees(response);
         return employees;
 	
 	}
@@ -79,17 +82,36 @@ public class EmployeeService implements IEmployeeService {
 		}
 	}
 
-	public List<Employee> stringtoEmpList(String data){
-		TypeReference<List<Employee>> mapType = new TypeReference<List<Employee>>() {};
-		List<Employee> employees = new ArrayList<Employee>();
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			employees = mapper.readValue(data, mapType);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		return employees;
+	@Override
+	public List<Projet> getEmployeeProjetsByEmpId(Long id) {
+		List<Projet> projets = new ArrayList<Projet>();
+		SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        RestTemplate restTemplate = new RestTemplate(requestFactory);
+        String url = "http://localhost:8083/gestion-projets/employees/"+id+"/projets";
+        ResponseEntity<String> rateResponse = restTemplate.getForEntity(url,String.class);
+		String response = rateResponse.getBody();
+		System.out.println(response);
+		projets = convert.stringtoProjets(response) ;
+        return projets;
 	}
+
+	@Override
+	public void affectationProjet(Long idEmp, LongType idProjet) {
+		try {
+		SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        RestTemplate restTemplate = new RestTemplate(requestFactory);
+       // http://localhost:8083/gestion-projets/affectationProjet/1/62
+        String url = "http://localhost:8083/gestion-projets/affectationProjet/"+idEmp;
+        restTemplate.put(url, idProjet);
+        System.out.println("Service affectation tout est bien passee");
+       
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			
+		}
+	}
+
+	
+	
 
 }
