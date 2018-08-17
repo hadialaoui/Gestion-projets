@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import ma.ibm.metier.IConvertStringToListObj;
+import ma.ibm.models.Employee;
 import ma.ibm.models.Projet;
 
 @Service
@@ -80,5 +81,19 @@ public class ProjetService implements IProjetService {
 		}
 	}
 
+	@Override
+	public List<Employee> getProjetEmployeesByProId(Long id) {
+		List<Employee> employees = new ArrayList<Employee>();
+		SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        RestTemplate restTemplate = new RestTemplate(requestFactory);
+        String url = "http://localhost:8083/gestion-projets/projets/"+id+"/employees";
+        ResponseEntity<String> rateResponse = restTemplate.getForEntity(url,String.class);
+		String response = rateResponse.getBody();
+		System.out.println(response);
+		employees = convert.stringtoEmployees(response) ;
+        return employees;
+		
+	}
 
+   
 }

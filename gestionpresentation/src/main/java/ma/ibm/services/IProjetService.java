@@ -11,4 +11,5 @@ public interface IProjetService {
 	public Projet saveProjet(Projet projet);
 	public Projet updateProjet(Long id,Projet projet);
 	public boolean deleteProjet(Long id);
+	public List<Employee> getProjetEmployeesByProId(Long id);
 }

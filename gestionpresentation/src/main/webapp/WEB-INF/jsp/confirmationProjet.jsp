@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
@@ -40,11 +41,18 @@
 
 						<div class="form-group row">
 							<label class="control-label col-lg-2">Date Debut:</label> <label
-								class="control-label col-lg-5"><strong>${projet.dateDebut}</strong></label>
+								class="control-label col-lg-5"><strong>
+								<fmt:formatDate pattern="dd-MM-yyyy"
+								value="${projet.dateDebut}" />
+								</strong></label>
 						</div>
 						<div class="form-group row">
 							<label class="control-label col-lg-2">Date Fin:</label> <label
-								class="control-label col-lg-5"><strong>${projet.dateFin}</strong></label>
+								class="control-label col-lg-5">
+								<strong>
+								<fmt:formatDate pattern="dd-MM-yyyy"
+								value="${projet.dateFin}" />
+								</strong></label>
 						</div>
 					</div>
 				</div>

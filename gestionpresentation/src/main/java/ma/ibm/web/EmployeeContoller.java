@@ -1,5 +1,10 @@
 package ma.ibm.web;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +27,22 @@ public class EmployeeContoller {
 	
 	@RequestMapping(value = "/staticResourceTest")
 	public String getView(Model model) {
-		model.addAttribute("employees",employeeService.getEmployees());
+		 List<Employee> employees = employeeService.getEmployees();
+		/* employees.forEach( emp -> {
+			 try {
+				 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+				 //Date date = new Date();
+				System.out.println("before"+ emp.getDateIntegration().toString());
+				 Date date = format.parse(emp.getDateIntegration().toString());
+				System.out.println("after"+ date.toString());
+				emp.setDateIntegration(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 
+		 });*/
+		model.addAttribute("employees",employees);
 		return "index";
 	}
 	

@@ -68,6 +68,16 @@ public class ProjetContoller {
 	 return "index";
 	}
 	
+	@GetMapping(value="/projets/{id}/employees")
+	private String employeesPro(@PathVariable Long id, Model model){
+		model.addAttribute("projet",projetService.getProjet(id));
+		//boolean test = employeeService.deleteEmployee(id);
+		System.out.println(id+" EmployeeController avant");
+		model.addAttribute("employees",projetService.getProjetEmployeesByProId(id));
+		System.out.println(id+" EmployeeController apres");
+	 return "employeesProjet";
+	}
+	
 	@PostMapping(value="/projets/put/{id}")
 	private String update(@PathVariable Long id, @ModelAttribute Projet p,Model model){
 		model.addAttribute("projet",projetService.updateProjet(id, p));

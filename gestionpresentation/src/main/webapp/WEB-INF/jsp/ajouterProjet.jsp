@@ -27,14 +27,16 @@
 							</div>
 
 							<div class="form-group">
-								<label class="control-label">Date debut</label> <input type="text"
-									name="dateDebut" value="${projet.dateDebut}" class="form-control" />
+								<label class="control-label">Date debut</label> <input type="date"
+									id="dateD" value="${projet.dateDebut}" class="form-control" />
+								<input id="dateHiddenD"  type="hidden" name="dateDebut"/><span></span>
 								<span></span>
 							</div>
 
 							<div class="form-group">
-								<label class="control-label">Date fin</label> <input type="text"
-									name="dateFin" value="${projet.dateFin}" class="form-control" />
+								<label class="control-label">Date fin</label> <input type="date"
+									id="dateF" value="${projet.dateFin}" class="form-control" />
+								<input id="dateHiddenF" type="hidden" name="dateFin"/><span></span>
 								<span></span>
 							</div>
 							
@@ -51,7 +53,7 @@
         </div> --%>
 
 							<div>
-								<button type="submit" class="btn btn-primary">Ajouter</button>
+								<button type="submit"  class="btn btn-primary" onclick="convertDateProjet()">Ajouter</button>
 							</div>
 						</div>
 					</div>
@@ -62,5 +64,6 @@
 
 	</div>
 	<script src="<c:url value = "/assets/js/jquery-3.3.1.js"/>"></script>
+	<script src="<c:url value = "/assets/js/custom.js"/>"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ma.ibm.models.Employee;
 import ma.ibm.models.Projet;
 import ma.ibm.repositories.ProjetRepository;
 import ma.ibm.services.IEntityToModel;
@@ -55,10 +56,11 @@ public class ProjetController {
 	}
 
 	@GetMapping(value="/projets/{id}/employees")
-	private List<Projet> getProjetsByEmp(@PathVariable Long id){
-		Optional<ma.ibm.entities.Projet> e = projetRepository.findById(id);
-		return null;
+	private List<Employee> getEmployeesByPro(@PathVariable Long id){	
+		return toModel.listEmployeesEntityToModel(projetRepository.getProjetEmployeesByProId(id));
 	}
+	
+	
 }
 
 	

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <title>Welcome</title>
+
 <link href="<c:url value = "/assets/css/bootstrap.min.css"/>"
 	type="text/css" rel="stylesheet">
 <link href="<c:url value = "/assets/css/bootstrap-reboot.min.css"/>"
@@ -56,12 +57,13 @@
 
 							<div class="form-group">
 								<label class="control-label">Date Integration</label> <input
-									type="text" name="dateIntegration"
+									id="dateInteg" type="date"
 									value="${employee.dateIntegration}" class="form-control"
-									/> <span></span>
+									/> 
+									<input id="dateHidden" type="hidden" name="dateIntegration"/><span></span>
 							</div>
 							<div>
-								<button type="submit" class="btn btn-primary">Ajouter</button>
+								<button type="submit" class="btn btn-primary" onclick="convertDate()">Ajouter</button>
 							</div>
 						</div>
 					</div>
@@ -72,5 +74,6 @@
 
 	</div>
 	<script src="<c:url value = "/assets/js/jquery-3.3.1.js"/>"></script>
+	<script src="<c:url value = "/assets/js/custom.js"/>"></script>
 </body>
 </html>
