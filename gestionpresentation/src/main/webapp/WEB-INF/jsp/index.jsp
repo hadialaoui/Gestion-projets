@@ -15,8 +15,16 @@
 <body>
 	<%@include file="header.jsp"%>
 	<div class="container style-container">
-		<br />
-
+		      
+      <h6 style="color: #6a747e;padding-top:15px">
+			<strong>Consultation des Ressources</strong>
+		</h6>
+        <div class="form-group" style="padding-top:15px">
+          <input id = "myInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <span></span>
+        </div>
+    	
+    
 		<table class="table table-striped table-bordered table-list">
 			<thead class="thead-dark">
 				<tr>
@@ -25,6 +33,7 @@
 					<th>Prénom</th>
 					<th>Statut</th>
 					<th>Date integration</th>
+					<th colspan="3">Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,16 +50,18 @@
 						<td><a
 							href="/gestionpresentation/employees/${employee.id}/projets">
 							<i class="material-icons" style="color:#358be1;">list</i>
-							 Projets</a></td>
-						
-						<td><a
-							href="/gestionpresentation/listEmployee/delete/${employee.id}" class="confirmation">
+							 Projets</a>
+						</td>						
+						<td>
+						<a href="/gestionpresentation/listEmployee/delete/${employee.id}" class="confirmation">
 							<i class="material-icons" style="color:#358be1;">delete</i>
-							</a></td>
-						
-						<td><a href="/gestionpresentation/updateEmployee/${employee.id}">
+							</a>
+						</td>						
+						<td>
+						<a href="/gestionpresentation/updateEmployee/${employee.id}">
 						<i class="material-icons" style="color:#358be1;">edit</i>
-						</a></td>
+						</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

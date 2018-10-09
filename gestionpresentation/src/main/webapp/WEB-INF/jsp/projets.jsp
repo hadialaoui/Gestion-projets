@@ -20,12 +20,20 @@
 </head>
 <body>
 	<%@include file="header.jsp"%>
+	
+	
+        
 	<div class="container style-container">
-		<br />
-
-		<h6 style="color: #6a747e;">
-			<strong>- Consultation des projets</strong>
+		
+		<h6 style="color: #6a747e;padding-top:15px">
+			<strong>Consultation des projets</strong>
 		</h6>
+		
+		<div class="form-group" style="padding-top:15px">
+          <input id = "myInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <span></span>
+        </div> 
+	
 
 		<c:if test="${valid == 'yes'} ">
 			<div class="alert alert-success" role="alert">Projet a été
@@ -39,6 +47,7 @@
 					<th>Date Debut</th>
 					<th>date Fin</th>
 					<th>refogRespo</th>
+					<th colspan="3">Actions</th>
 				</tr>
 			</thead>
 			<tbody>

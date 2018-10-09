@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
@@ -24,25 +25,28 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group row">
-							<label class="control-label col-lg-2">Refog : </label> <label
+							<label class="control-label col-lg-3">Refog : </label> <label
 								class="control-label col-lg-4"><strong>${employee.refog}</strong></label>
 						</div>
 						<div class="form-group row">
-							<label class="control-label col-lg-2">Nom : </label> <label
+							<label class="control-label col-lg-3">Nom : </label> <label
 								class="control-label col-lg-4"><strong>${employee.nom}</strong></label>
 						</div>
 						<div class="form-group row">
-							<label class="control-label col-lg-2">Prenom : </label> <label
+							<label class="control-label col-lg-3">Prenom : </label> <label
 								class="control-label col-lg-4"><strong>${employee.prenom}</strong></label>
 						</div>
 						<div class="form-group row">
-							<label class="control-label col-lg-2">Statut : </label> <label
+							<label class="control-label col-lg-3">Statut : </label> <label
 								class="control-label col-lg-4"><strong>${employee.statut}</strong></label>
 						</div>
-						<%-- <div class="form-group row">
+						<div class="form-group row">
 	        <label class="control-label col-lg-3">Date Integration:</label>
-	        <label class="control-label col-lg-4">${employee.dateIntegration}</label>
-	      </div> --%>
+	        <label class="control-label col-lg-4"><strong>
+	        <fmt:formatDate pattern="dd-MM-yyyy"
+								value="${employee.dateIntegration}" />
+	        <strong></label>
+	      </div>
 					</div>
 				</div>
 

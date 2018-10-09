@@ -35,7 +35,7 @@ public class Employee {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinTable(name = "employee_projets", joinColumns = { @JoinColumn(name = "employee_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "projet_id") })
-	Set<Projet> projets = new HashSet<>();
+	Set<Projet> projets = new HashSet<Projet>();
 
 	
 	public Employee() {}

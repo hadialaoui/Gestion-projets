@@ -16,3 +16,12 @@ function convertDateProjet(){
 	   var dateFinalF = dateTabF[1]+"/"+dateTabF[2]+"/"+dateTabF[0];	  
 	  document.getElementById("dateHiddenF").value = dateFinalF;
 	}
+
+$(document).ready(function(){
+	$("#myInput").on("keyup",function(){
+		var value = $(this).val().toLowerCase();
+		$("tr:has(td)").filter(function(){
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+		});
+	});
+});

@@ -16,7 +16,7 @@
 	<div class="container style-container">
 		<br />
 		<div class="card">
-    <div class="card-header text-center">Modification Employee</div>  
+    <div class="card-header text-center">Modification Projet</div>  
     <div class="card-body">
        <form action="/gestionpresentation/projets/put/${projet.id}" method="post">
         <div class="row">

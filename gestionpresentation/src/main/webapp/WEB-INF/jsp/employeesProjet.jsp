@@ -17,7 +17,7 @@
 		<br />
 		 <div class="card">
 		 <div class="card-header">
-		    <h6>Ressource du projet : <strong>${projet.nom} </strong> </h6>
+		    <h6>Ressources du projet : <strong>${projet.nom} </strong> </h6>
 		 </div>
 		 </div>
 		<br/>

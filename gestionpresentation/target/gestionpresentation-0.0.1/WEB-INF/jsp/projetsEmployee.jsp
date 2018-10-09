@@ -15,6 +15,12 @@
 	<%@include file="header.jsp"%>
 	<div class="container style-container">
 		<br />
+		 <div class="card">
+		 <div class="card-header">
+		    <h6><strong>${employee.refog} / ${employee.nom}  ${employee.prenom} </strong>  travaille sur les projets suivants </h6>
+		 </div>
+		 </div>
+		<br/>
 		<table class="table table-striped table-bordered table-list">
 			<thead class="thead-dark">
 				<tr>
@@ -35,8 +41,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<form action="/gestionpresentation/affectationProjet/${idEmployee}" method="post" class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" name="idProjet" type="text" placeholder="identifiant projet" aria-label="Search">
+		<form action="/gestionpresentation/affectationProjet/${employee.id}" method="post" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" name="number" type="text" placeholder="identifiant projet" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Affectation</button>
     </form>
 	</div>
